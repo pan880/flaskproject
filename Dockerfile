@@ -1,4 +1,5 @@
 FROM python
+LABEL "flask"
 RUN apt-get update
 WORKDIR /project
 ADD . /project
