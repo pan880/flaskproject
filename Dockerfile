@@ -1,4 +1,4 @@
-FROM python:3.6.1
+FROM python
 RUN apt-get all
 WORKDIR /project
 ADD . /project
