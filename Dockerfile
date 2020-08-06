@@ -1,5 +1,5 @@
 FROM python
-RUN atp-get all
+RUN apt-get update
 WORKDIR /project
 ADD . /project
 RUN pip install -r requirements.txt
