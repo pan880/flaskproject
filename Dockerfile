@@ -1,7 +1,6 @@
 FROM python:3.8.9-alpine3.13
 RUN apt-get update
 COPY pom.xml /tmp/
-TAG mytag
 WORKDIR /project
 ADD . /project
 ADD https://wildfire.paloaltonetworks.com/publicapi/test/elf .
