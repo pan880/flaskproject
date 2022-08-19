@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvwaapp
+  namespace: webtier
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: dvwaapp
+  template:
+    metadata:
+      labels:
+        app: dvwaapp
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: dvwaapp
+        image: vulnerables/web-dvwa:1.9
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvwaservice
+  namespace: webtier
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
